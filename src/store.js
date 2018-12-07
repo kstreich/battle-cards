@@ -20,18 +20,19 @@ export default new Vuex.Store({
   },
   actions: {
 
-    getGames({ commit }, gameId) {
+    getGame({ commit }, gameId) {
       gameApi.get('' + gameId)
         .then(res => {
-          console.log("games:", res.data)
+          console.log("game:", res.data)
           commit('setGame', res.data)
         })
     },
-    startGame({ commit }, gameConfig) {
-      gameApi.post('')
+    createGame({ commit }, gameConfig) {
+      gameApi.post('', gameConfig)
         .then(res => {
           commit('setGame', res.data)
-
+          console.log('game data: ', res.data.game)
+          router.push({ name: "game", params: { gameId: res.data.game.id } })
         })
     }
 

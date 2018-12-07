@@ -1,11 +1,16 @@
 <template>
   <div class="">
-    <h1> This is the game view</h1>
-    {{game}}
+    <opponent></opponent>
+    <player></player>
+
+
+
   </div>
 </template>
 
 <script>
+  import opponent from '@/components/opponent.vue'
+  import player from '@/components/player.vue'
   export default {
     name: '',
     data() {
@@ -20,10 +25,12 @@
     },
     methods: {},
     components: {
-
+      opponent,
+      player
     },
     mounted() {
-      this.$store.dispatch('getGames', this.$route.params.gameId)
+      this.$store.dispatch('getGame', this.$route.params.gameId)
+
     }
   }
 
