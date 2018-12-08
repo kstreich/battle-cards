@@ -1,11 +1,8 @@
 <template>
   <div class="">
     <opponent></opponent>
-    <button v-if="opponentCard && playerCard">Play Now!</button>
+    <button @click="attack" v-if="opponentCard && playerCard">Play Now!</button>
     <player></player>
-
-
-
   </div>
 </template>
 
@@ -30,7 +27,16 @@
         return this.$store.state.playerCardId
       }
     },
-    methods: {},
+    methods: {
+      attack() {
+        let cardIds = {
+          playerCardId: this.playerCard, opponentCardId: this.opponentCardId
+        }
+        this.$store.dispatch('attack', {
+          attackObj: cardIds, gameId: this.game.gameId
+        })
+      }
+    },
     components: {
       opponent,
       player
