@@ -67,9 +67,11 @@ export default new Vuex.Store({
       commit('setOCI', cardId)
     },
     attack({ commit, dispatch }, payload) {
-      gameApi.put("" + payload.gameId, payload.cardIds)
+      gameApi.put('' + payload.gameId, payload.attackObj)
         .then(res => {
           console.log(res.data)
+          commit('setGame', res.data)
+          debugger
           dispatch('getGame')
         })
     }

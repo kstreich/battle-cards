@@ -30,10 +30,10 @@
     methods: {
       attack() {
         let cardIds = {
-          playerCardId: this.playerCard, opponentCardId: this.opponentCardId
+          playerCardId: this.playerCard, opponentCardId: this.opponentCard
         }
         this.$store.dispatch('attack', {
-          attackObj: cardIds, gameId: this.game.gameId
+          attackObj: cardIds, gameId: this.game.id
         })
       }
     },
