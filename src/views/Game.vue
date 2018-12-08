@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <opponent></opponent>
-    <button @click="attack" v-if="opponentCard && playerCard">Play Now!</button>
+    <button @click="attack" v-if="opponentCard && playerCard">Begin Duel</button>
     <player></player>
   </div>
 </template>

@@ -71,8 +71,7 @@ export default new Vuex.Store({
         .then(res => {
           console.log(res.data)
           commit('setGame', res.data)
-          debugger
-          dispatch('getGame')
+          dispatch('getGame', [payload.gameId])
         })
     }
 

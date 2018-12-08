@@ -1,9 +1,12 @@
 <template>
   <div v-if="game.id" class="player">
-    <h1>The player object</h1>
     <div class="container">
       <div class="row d-flex justify-content-center">
         <h4>Player: {{game.player.name}}</h4>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <h5>Remaining Cards: {{game.player.remainingCards}} -</h5>
+        <h5> - Dead Cards: {{game.player.deadCards.length}}</h5>
       </div>
       <div class="row d-flex justify-content-around">
         <div class="col-2 card" v-for="card in hand">
