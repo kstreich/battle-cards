@@ -1,6 +1,7 @@
 <template>
   <div class="">
     <opponent></opponent>
+    <button v-if="opponentCard && playerCard">Play Now!</button>
     <player></player>
 
 
@@ -21,6 +22,12 @@
     computed: {
       game() {
         return this.$store.state.game
+      },
+      opponentCard() {
+        return this.$store.state.opponentCardId
+      },
+      playerCard() {
+        return this.$store.state.playerCardId
       }
     },
     methods: {},

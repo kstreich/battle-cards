@@ -1,5 +1,5 @@
 <template>
-  <div class="opponent">
+  <div v-if="game.id" class="opponent">
     <h1>The opponent object</h1>
     <div class="container">
       <div class="row d-flex justify-content-center">
@@ -12,6 +12,7 @@
           <p>Attack - {{card.attack}}</p>
           <p>Defense - {{card.defense}}</p>
           <p>Health - {{card.health}}</p>
+          <button @click="setOpponentCI(card.id)">Select</button>
         </div>
       </div>
     </div>
@@ -23,17 +24,21 @@
     name: 'opponent',
     data() {
       return {
-
+        attackObject: ""
       }
     },
     components: {},
-    methods: {},
+    methods: {
+      setOpponentCI(cardId) {
+        this.$store.dispatch('setOpponentCI', cardId)
+      }
+    },
     computed: {
       game() {
-        return this.$store.state.game.data
+        return this.$store.state.game
       },
       hand() {
-        return this.$store.state.game.data.opponent.hand
+        return this.$store.state.game.opponent.hand
       }
     }
   }
