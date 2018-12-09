@@ -9,7 +9,7 @@
         <h5> - Dead Cards: {{game.player.deadCards.length}}</h5>
       </div>
       <div class="row d-flex justify-content-around">
-        <div class="col-2 card" v-for="card in hand">
+        <div class="col-2 " v-for="card in hand">
           <img class="card-img-top" :src="card.img">
           <p>{{card.name}}</p>
           <p>Attack - {{card.attack}}</p>
@@ -19,7 +19,20 @@
         </div>
       </div>
     </div>
+
+    <div class="row d-flex justify-content-around">
+      <div v-for="card in hand" class="cardStyle col-2" @click="setPlayerCI(card.id)">
+        <img class=" imgSize" :src="card.img" />
+        <h5>{{card.name}}</h5>
+        <p><span><img class="iconSize" src="../../public/assets/gun.png"></span> {{card.attack}} </p>
+        <p><span><img class="iconSize" src="../../public/assets/security-badge.png"></span>
+          {{card.defense}}</p>
+        <p><span><img class="iconSize" src="../../public/assets/heart.png"></span> {{card.health}} </p>
+      </div>
+    </div>
   </div>
+
+
 </template>
 
 <script>
@@ -48,6 +61,28 @@
 </script>
 
 <style>
+  .cardStyle {
+    height: 38vh;
+    width: 24vh;
+    cursor: pointer;
+    text-align: center;
+    word-wrap: break-word;
+    border: 4px black solid;
+    border-radius: 15px;
+    line-height: 8px;
+    background-color: aquamarine;
+  }
 
+  .imgSize {
+    height: 16vh;
+    margin-bottom: 15px;
+  }
 
+  .iconSize {
+    height: 3vh;
+  }
+
+  p {
+    margin-bottom: 4px;
+  }
 </style>

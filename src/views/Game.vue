@@ -1,7 +1,12 @@
 <template>
-  <div class="">
+
+  <div class="gameOver" v-if="game.over">
+    <gameOver></gameOver>
+  </div>
+
+  <div class="gameOn" v-else-if="!game.over">
     <opponent></opponent>
-    <button @click="attack" v-if="opponentCard && playerCard">Begin Duel</button>
+    <button class="btn btn-danger" @click="attack" v-if="opponentCard && playerCard">Begin Duel</button>
     <player></player>
   </div>
 </template>
@@ -9,6 +14,7 @@
 <script>
   import opponent from '@/components/opponent.vue'
   import player from '@/components/player.vue'
+  import gameOver from '@/components/gameover.vue'
   export default {
     name: '',
     data() {
@@ -39,7 +45,8 @@
     },
     components: {
       opponent,
-      player
+      player,
+      gameOver
     },
     mounted() {
       this.$store.dispatch('getGame', this.$route.params.gameId)

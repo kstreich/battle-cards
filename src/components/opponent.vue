@@ -8,18 +8,21 @@
         <h5>Remaining Cards: {{game.opponent.remainingCards}} -</h5>
         <h5> - Dead Cards: {{game.opponent.deadCards.length}}</h5>
       </div>
-      <div class="row d-flex justify-content-around">
-        <div class="col-2 card" v-for="card in hand">
-          <img class="card-img-top" :src="card.img">
-          <p>{{card.name}}</p>
-          <p>Attack - {{card.attack}}</p>
-          <p>Defense - {{card.defense}}</p>
-          <p>Health - {{card.health}}</p>
-          <button v-bind:class="{activebtn: attackObject}
-            " @click="setOpponentCI(card.id)">Select</button>
+      <div class="opponent-hand row d-flex justify-content-around">
+        <div v-for="card in hand" class="col-2 ">
+          <img v-if="!card.visible" src="../../public/assets/cardback.png" class="hiddenCard" @click="card.visible = true">
+          <div class="cardStyle" v-else-if="card.visible">
+            <img class="imgSize" :src="card.img">
+            <h5>{{card.name}}</h5>
+            <p>Attack - {{card.attack}}</p>
+            <p>Defense - {{card.defense}}</p>
+            <p>Health - {{card.health}}</p>
+            <button @click="setOpponentCI(card.id)">Select</button>
+          </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -28,14 +31,16 @@
     name: 'opponent',
     data() {
       return {
-        attackObject: ""
+        attackObject: "",
       }
     },
     components: {},
     methods: {
       setOpponentCI(cardId) {
+
         this.$store.dispatch('setOpponentCI', cardId)
-      }
+      },
+
     },
     computed: {
       game() {
@@ -50,7 +55,12 @@
 </script>
 
 <style>
-  .activebtn {
-    color: red;
+  .hiddenCard {
+
+    height: 38vh;
+    width: 24vh;
+    z-index: 1;
+    cursor: pointer;
+    border: 3px black;
   }
 </style>

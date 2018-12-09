@@ -13,7 +13,9 @@ export default new Vuex.Store({
   state: {
     game: {},
     opponentCardId: "",
-    playerCardId: ""
+    playerCardId: "",
+    opponent: undefined,
+    player: undefined
 
   },
   mutations: {
@@ -25,6 +27,9 @@ export default new Vuex.Store({
     },
     setOCI(state, cardId) {
       state.opponentCardId = cardId
+    },
+    setOpponent(state, card) {
+      state.opponent = card
     }
   },
   actions: {
@@ -73,6 +78,9 @@ export default new Vuex.Store({
           commit('setGame', res.data)
           dispatch('getGame', [payload.gameId])
         })
+    },
+    startNewGame({ commit }) {
+      router.push({ name: 'home' })
     }
 
   }
