@@ -1,29 +1,31 @@
 <template>
-  <div v-if="game.id" class="opponent">
-    <div class="container">
-      <div class="row d-flex justify-content-center">
+  <div v-if="game.id" class="opponent ">
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-around align-items-end">
+        <h6>Remaining Cards: {{game.opponent.remainingCards}}</h6>
         <h4>Opponent: {{game.opponent.name}}</h4>
-      </div>
-      <div class="row d-flex justify-content-center">
-        <h5>Remaining Cards: {{game.opponent.remainingCards}} -</h5>
-        <h5> - Dead Cards: {{game.opponent.deadCards.length}}</h5>
-      </div>
-      <div class="opponent-hand row d-flex justify-content-around">
-        <div v-for="card in hand" class="col-2 ">
-          <img v-if="!card.visible" src="../../public/assets/cardback.png" class="hiddenCard" @click="card.visible = true">
-          <div class="cardStyle" v-else-if="card.visible">
-            <img class="imgSize" :src="card.img">
-            <h5>{{card.name}}</h5>
-            <p>Attack - {{card.attack}}</p>
-            <p>Defense - {{card.defense}}</p>
-            <p>Health - {{card.health}}</p>
-            <button @click="setOpponentCI(card.id)">Select</button>
-          </div>
-        </div>
+        <h6>Dead Cards: {{game.opponent.deadCards.length}}</h6>
       </div>
     </div>
+
+
+    <div class="opponent-hand row d-flex justify-content-around">
+      <div v-for="card in hand" class="col-2 ">
+        <img v-if="!card.visible" src="../../public/assets/cardback.png" class="hiddenCard" @click="card.visible = true">
+
+        <div class="cardStyle" v-else-if="card.visible" @click="setOpponentCI(card.id)">
+          <img class="imgSize" :src="card.img">
+          <h5>{{card.name}}</h5>
+          <p><span><img class="iconSize" src="../../public/assets/gun.png"></span> {{card.attack}}</p>
+          <p><span><img class="iconSize" src="../../public/assets/security-badge.png"></span>{{card.defense}}</p>
+          <p><span><img class="iconSize" src="../../public/assets/heart.png"></span> {{card.health}}</p>
+        </div>
+
+      </div>
+    </div>
+
   </div>
-  </div>
+
 </template>
 
 <script>
@@ -59,8 +61,6 @@
 
     height: 38vh;
     width: 24vh;
-    z-index: 1;
     cursor: pointer;
-    border: 3px black;
   }
 </style>

@@ -1,14 +1,13 @@
 <template>
   <div v-if="game.id" class="player">
-    <div class="container">
-      <div class="row d-flex justify-content-center">
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-around align-items-end ">
+        <h6>Remaining Cards: {{game.player.remainingCards}} </h6>
         <h4>Player: {{game.player.name}}</h4>
+        <h6>Dead Cards: {{game.player.deadCards.length}}</h6>
       </div>
-      <div class="row d-flex justify-content-center">
-        <h5>Remaining Cards: {{game.player.remainingCards}} -</h5>
-        <h5> - Dead Cards: {{game.player.deadCards.length}}</h5>
-      </div>
-      <div class="row d-flex justify-content-around">
+    </div>
+    <!-- <div class="row d-flex justify-content-around">
         <div class="col-2 " v-for="card in hand">
           <img class="card-img-top" :src="card.img">
           <p>{{card.name}}</p>
@@ -17,9 +16,7 @@
           <p>Health - {{card.health}}</p>
           <button @click="setPlayerCI(card.id)">Select</button>
         </div>
-      </div>
-    </div>
-
+      </div> -->
     <div class="row d-flex justify-content-around">
       <div v-for="card in hand" class="cardStyle col-2" @click="setPlayerCI(card.id)">
         <img class=" imgSize" :src="card.img" />
