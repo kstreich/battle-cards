@@ -7,16 +7,6 @@
         <h6>Dead Cards: {{game.player.deadCards.length}}</h6>
       </div>
     </div>
-    <!-- <div class="row d-flex justify-content-around">
-        <div class="col-2 " v-for="card in hand">
-          <img class="card-img-top" :src="card.img">
-          <p>{{card.name}}</p>
-          <p>Attack - {{card.attack}}</p>
-          <p>Defense - {{card.defense}}</p>
-          <p>Health - {{card.health}}</p>
-          <button @click="setPlayerCI(card.id)">Select</button>
-        </div>
-      </div> -->
     <div class="row d-flex justify-content-around">
       <div v-for="card in hand" class="cardStyle col-2" @click="setPlayerCI(card.id)">
         <img class=" imgSize" :src="card.img" />
@@ -67,7 +57,8 @@
     border: 4px black solid;
     border-radius: 15px;
     line-height: 8px;
-    background-color: aquamarine;
+    background-color: white;
+    color: black;
   }
 
   .imgSize {

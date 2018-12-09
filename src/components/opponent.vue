@@ -11,7 +11,7 @@
 
     <div class="opponent-hand row d-flex justify-content-around">
       <div v-for="card in hand" class="col-2 ">
-        <img v-if="!card.visible" src="../../public/assets/cardback.png" class="hiddenCard" @click="card.visible = true">
+        <img v-if="!card.visible" src="../../public/assets/cardback2.png" class="hiddenCard" @click="card.visible = true">
 
         <div class="cardStyle" v-else-if="card.visible" @click="setOpponentCI(card.id)">
           <img class="imgSize" :src="card.img">
@@ -62,5 +62,7 @@
     height: 38vh;
     width: 24vh;
     cursor: pointer;
+    border: 1px solid white;
+    border-radius: 15px;
   }
 </style>

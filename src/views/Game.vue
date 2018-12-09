@@ -1,13 +1,14 @@
 <template>
+  <div class="container-fluid game">
+    <div class="gameOver" v-if="game.over">
+      <gameOver></gameOver>
+    </div>
 
-  <div class="gameOver" v-if="game.over">
-    <gameOver></gameOver>
-  </div>
-
-  <div class="gameOn" v-else-if="!game.over">
-    <opponent></opponent>
-    <button class="btn btn-success mt-4 mb-4" @click="attack" v-if="opponentCard && playerCard">Begin Duel</button>
-    <player></player>
+    <div class="gameOn" v-else-if="!game.over">
+      <opponent></opponent>
+      <button class="btn btn-success mt-4 mb-4" @click="attack" v-if="opponentCard && playerCard">Begin Duel</button>
+      <player></player>
+    </div>
   </div>
 </template>
 
@@ -57,6 +58,9 @@
 </script>
 
 <style>
-
-
+  .game {
+    background-image: url('../../public/assets/space.jpg');
+    height: 100vh;
+    color: white;
+  }
 </style>
