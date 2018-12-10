@@ -6,7 +6,7 @@
 
     <div class="gameOn" v-else-if="!game.over">
       <opponent></opponent>
-      <button class="btn btn-success mt-4 mb-4" @click="attack" v-if="opponentCard && playerCard">Begin Duel</button>
+      <button class="btn btn-primary mt-4 mb-4" @click="attack" v-if="opponentCard && playerCard">Begin Duel</button>
       <player></player>
     </div>
   </div>

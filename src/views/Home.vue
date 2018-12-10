@@ -1,12 +1,12 @@
 <template>
   <div class="home container-fluid">
-    <h1>Space Adventure Battle Cards</h1>
+    <h1 class="headerSize">Space Adventure Battle Cards</h1>
 
-    <form @submit.prevent="createGame">
-      <label for="playerName">Enter Player Name</label>
+    <form @submit.prevent="createGame" class="spacing">
+      <label for="playerName"> Enter Player Name </label>
       <input name="playerName" type="text" v-model="gameConfig.playerName">
 
-      <h3>Choose Card Deck</h3>
+      <h3 class="spacing">Choose Card Deck</h3>
       <div class="row">
         <div class="col 3">
           <img class="homeImg" src="https://robohash.org/c47837d6-e937-4ca5-bac3-9b0f050e8e61?set=set1">
@@ -75,5 +75,13 @@
 
   .homeImg {
     height: 20vh;
+  }
+
+  .spacing {
+    margin-top: 10vh
+  }
+
+  .headerSize {
+    font-size: 4rem
   }
 </style>
