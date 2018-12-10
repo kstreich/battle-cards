@@ -13,7 +13,7 @@
       <div v-for="card in hand" class="col-2 ">
         <img v-if="!card.visible" src="../../public/assets/cardback2.png" class="hiddenCard" @click="card.visible = true">
 
-        <div class="cardStyle" v-else-if="card.visible" @click="setOpponentCI(card.id)" :class="{'border-success' : selected == card.id}">
+        <div class="cardStyle" v-else-if="card.visible" @click="setOpponentCI(card.id)" :class="{'border-success' : false}">
           <img class="imgSize" :src="card.img">
           <h5>{{card.name}}</h5>
           <p><span><img class="iconSize" src="../../public/assets/gun.png"></span> {{card.attack}}</p>
@@ -34,7 +34,6 @@
     data() {
       return {
         attackObject: "",
-        selected: ""
       }
     },
     components: {},

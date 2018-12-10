@@ -8,8 +8,8 @@
       </div>
     </div>
     <div class="row d-flex justify-content-around">
-      <div v-for="card in hand" class="cardStyle col-2" @click="setPlayerCI(card.id)">
-        <img class=" imgSize" :src="card.img" />
+      <div v-for="card in hand" class="cardStyle" @click="setPlayerCI(card.id)">
+        <img class="imgSize" :src="card.img" />
         <h5>{{card.name}}</h5>
         <p><span><img class="iconSize" src="../../public/assets/gun.png"></span> {{card.attack}} </p>
         <p><span><img class="iconSize" src="../../public/assets/security-badge.png"></span>
