@@ -8,24 +8,20 @@
       </div>
     </div>
 
-
     <div class="opponent-hand row d-flex justify-content-around">
       <div v-for="card in hand" class="col-2 ">
         <img v-if="!card.visible" src="../../public/assets/cardback2.png" class="hiddenCard" @click="card.visible = true">
 
-        <div class="cardStyle" v-else-if="card.visible" @click="setOpponentCI(card.id)" :class="{'border-success' : false}">
+        <div class="cardStyle" v-else-if="card.visible" @click="setOpponentCI(card.id)" :class="{'shadow': attackObject.length > 0}">
           <img class="imgSize" :src="card.img">
           <h5>{{card.name}}</h5>
           <p><span><img class="iconSize" src="../../public/assets/gun.png"></span> {{card.attack}}</p>
           <p><span><img class="iconSize" src="../../public/assets/security-badge.png"></span>{{card.defense}}</p>
           <p><span><img class="iconSize" src="../../public/assets/heart.png"></span> {{card.health}}</p>
         </div>
-
       </div>
     </div>
-
   </div>
-
 </template>
 
 <script>
@@ -64,5 +60,11 @@
     cursor: pointer;
     border: 4px solid white;
     border-radius: 15px;
+  }
+
+  .shadow {
+    -moz-box-shadow: inset 0 0 30px #cd1818;
+    -webkit-box-shadow: inset 0 0 30px #cd1818;
+    box-shadow: inset 0 0 30px #cd1818;
   }
 </style>
