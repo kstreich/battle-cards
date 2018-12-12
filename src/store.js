@@ -14,8 +14,8 @@ export default new Vuex.Store({
     game: {},
     opponentCardId: "",
     playerCardId: "",
-    opponent: undefined,
-    player: undefined
+    opponent: "",
+    player: ""
 
   },
   mutations: {
@@ -69,6 +69,7 @@ export default new Vuex.Store({
       commit('setPCI', cardId)
     },
     setOpponentCI({ commit }, cardId) {
+
       commit('setOCI', cardId)
     },
     attack({ commit, dispatch }, payload) {

@@ -11,7 +11,7 @@
     </div>
   </div>
 </template>
-
+<!-- v-if="opponentCard && playerCard" -->
 <script>
   import opponent from '@/components/opponent.vue'
   import player from '@/components/player.vue'
@@ -39,6 +39,7 @@
         let cardIds = {
           playerCardId: this.playerCard, opponentCardId: this.opponentCard
         }
+
         this.$store.dispatch('attack', {
           attackObj: cardIds, gameId: this.game.id
         })

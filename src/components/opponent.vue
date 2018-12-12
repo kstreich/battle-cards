@@ -9,10 +9,10 @@
     </div>
 
     <div class="opponent-hand row d-flex justify-content-around">
-      <div v-for="card in hand" class="col-2 ">
-        <img v-if="!card.visible" src="../../public/assets/cardback2.png" class="hiddenCard" @click="card.visible = true">
+      <div v-for="card in hand" class="col-2" @click="setOpponentCI(card.id)" :class="{'borderSelect': attackObject.length > 0}">
+        <img v-if="!card.visible" src="../../public/assets/cardback2.png" class="hiddenCard">
 
-        <div class="cardStyle" v-else-if="card.visible" @click="setOpponentCI(card.id)" :class="{'shadow': attackObject.length > 0}">
+        <div class="cardStyle" v-else-if="card.visible" @click="setOpponentCI(card.id)" :class="{'borderSelect': attackObject.length > 0}">
           <img class="imgSize" :src="card.img">
           <h5>{{card.name}}</h5>
           <p><span><img class="iconSize" src="../../public/assets/gun.png"></span> {{card.attack}}</p>
@@ -35,7 +35,6 @@
     components: {},
     methods: {
       setOpponentCI(cardId) {
-
         this.$store.dispatch('setOpponentCI', cardId)
       },
 
@@ -66,5 +65,9 @@
     -moz-box-shadow: inset 0 0 30px #cd1818;
     -webkit-box-shadow: inset 0 0 30px #cd1818;
     box-shadow: inset 0 0 30px #cd1818;
+  }
+
+  .borderSelect {
+    border: 3px solid yellow;
   }
 </style>
